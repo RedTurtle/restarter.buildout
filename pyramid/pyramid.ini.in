@@ -7,7 +7,7 @@ pyramid.debug_notfound = false
 pyramid.debug_routematch = false
 pyramid.debug_templates = true
 pyramid.default_locale_name = it
-pyramid.includes = pyramid_celery
+pyramid.includes = pyramid_celery pyramid_mailer
 
 BROKER_URL = "redis://localhost:6379/0"
 CELERY_RESULT_BACKEND = "redis"
@@ -15,17 +15,17 @@ CELERY_REDIS_HOST = "localhost"
 CELERY_REDIS_PORT = 6379
 CELERY_REDIS_DB = 0
 
-mail.host = "${parts['restarter.notify']['mail.host']}"
-mail.port = "${parts['restarter.notify']['mail.port']}"
-mail.username = "${parts['restarter.notify']['mail.username']}"
-mail.password ="${parts['restarter.notify']['mail.password']}"
+mail.host = ${parts['restarter.notify']['mail.host']}
+mail.port = ${parts['restarter.notify']['mail.port']}
+mail.username = ${parts['restarter.notify']['mail.username']}
+mail.password =${parts['restarter.notify']['mail.password']}
 
-sms.username = "${parts['restarter.notify']['sms.username']}"
-sms.password ="${parts['restarter.notify']['sms.password']}"
+sms.username = ${parts['restarter.notify']['sms.username']}
+sms.password = ${parts['restarter.notify']['sms.password']}
 
 [server:main]
 use = egg:waitress#main
-host = 0.0.0.0
+host = 127.0.0.1
 port = 6543
 
 # Begin logging configuration
