@@ -1,14 +1,14 @@
 restarter.buildout
 ==================
 
-Buildout for the restarter project
+Buildout for the restarter project. Current python version supported is 2.7.
 
 
 Manual configuration steps:
 ---------------------------
 
-1.RPX Now http://restarter.it/rpx_config
-2.Disqus http://restarter.it/@@disqus-controlpanel 
+1.RPX  
+2.Disqus 
 
 
 Production todo:
