@@ -15,6 +15,14 @@ CELERY_REDIS_HOST = "localhost"
 CELERY_REDIS_PORT = 6379
 CELERY_REDIS_DB = 0
 
+mail.host = "${parts['restarter.notify']['mail.host']}"
+mail.port = "${parts['restarter.notify']['mail.port']}"
+mail.username = "${parts['restarter.notify']['mail.username']}"
+mail.password ="${parts['restarter.notify']['mail.password']}"
+
+sms.username = "${parts['restarter.notify']['sms.username']}"
+sms.password ="${parts['restarter.notify']['sms.password']}"
+
 [server:main]
 use = egg:waitress#main
 host = 0.0.0.0
