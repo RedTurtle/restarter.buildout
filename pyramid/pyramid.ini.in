@@ -9,11 +9,11 @@ pyramid.debug_templates = true
 pyramid.default_locale_name = it
 pyramid.includes = pyramid_celery pyramid_mailer
 
-BROKER_URL = "redis://localhost:6379/0"
+BROKER_URL = "redis://${parts['restarter.notify']['redis.host']}:${parts['restarter.notify']['redis.port']}/${parts['restarter.notify']['redis.db']}"
 CELERY_RESULT_BACKEND = "redis"
-CELERY_REDIS_HOST = "localhost"
-CELERY_REDIS_PORT = 6379
-CELERY_REDIS_DB = 0
+CELERY_REDIS_HOST = "${parts['restarter.notify']['redis.host']}"
+CELERY_REDIS_PORT = ${parts['restarter.notify']['redis.port']}
+CELERY_REDIS_DB = ${parts['restarter.notify']['redis.db']}
 
 mail.host = ${parts['restarter.notify']['mail.host']}
 mail.port = ${parts['restarter.notify']['mail.port']}
