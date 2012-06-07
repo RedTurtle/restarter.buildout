@@ -26,7 +26,7 @@ sms.password = ${parts['restarter.notify']['sms.password']}
 [server:main]
 use = egg:waitress#main
 host = 127.0.0.1
-port = 6543
+port = 9441
 
 # Begin logging configuration
 
