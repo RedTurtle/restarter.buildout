@@ -23,6 +23,9 @@ mail.password =${parts['restarter.notify']['mail.password']}
 sms.username = ${parts['restarter.notify']['sms.username']}
 sms.password = ${parts['restarter.notify']['sms.password']}
 
+fb.app_id = ${parts['restarter.notify']['fb.app_id']}
+fb.app_secret = ${parts['restarter.notify']['fb.app_secret']}
+
 [server:main]
 use = egg:waitress#main
 host = 127.0.0.1
