@@ -1,1 +1,3 @@
 varnish.vcl
+logrotate.conf
+initscript.sh

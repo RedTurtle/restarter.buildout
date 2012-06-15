@@ -1,0 +1,47 @@
+#!/bin/sh -e
+### BEGIN INIT INFO
+# Provides:          restarter
+# Required-Start:    $ALL 
+# Required-Stop:     
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: restarter initscript
+# Description:       This file should be symlinked in /etc/init.d and activated 
+#                    using the update-rc.d script:
+#                    ln -s ${initscript:output} /etc/init.d/restarter
+#                    update-rc.d restarter defaults
+### END INIT INFO
+
+test $DEBIAN_SCRIPT_DEBUG && set -v -x
+
+SITE_DIR=${buildout:directory}
+SITE_CONTROLLER=$SITE_DIR/bin
+SITE_USER=plone
+SITE_GROUP=plone
+
+test -d $SITE_DIR || exit
+
+case "$1" in
+start)
+  echo "Starting $SITE_DIR"
+  chown -R $SITE_USER.$SITE_GROUP $SITE_DIR
+  su - $SITE_USER -c "$SITE_CONTROLLER/supervisord"
+  echo "... done"
+  ;;
+stop)
+  echo "Stopping $SITE_DIR"
+  chown -R $SITE_USER.$SITE_GROUP $SITE_DIR
+  su - $SITE_USER -c "$SITE_CONTROLLER/supervisorctl shutdown"
+  echo "... done"
+  ;;
+
+*)
+  echo "Usage: $0 {start|stop}" >&2
+                                                                                                   
+  exit 1                                                                                           
+  ;;                                                                                               
+esac                                                                                               
+                                                                                                   
+exit 0                                                                                             
+                                                                                                   
+# vim:set ai sts=2 sw=2 tw=0:

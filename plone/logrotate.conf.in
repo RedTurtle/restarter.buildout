@@ -1,0 +1,15 @@
+# this should be copied/symlinked to the /etc/logrotate.d/ folder:
+# ln -s ${logrotate:output} /etc/logrotate.d/restarter
+
+${buildout:directory}/var/log/*.log {
+        weekly
+        rotate 10
+        compress
+        delaycompress
+        missingok
+        notifempty
+        sharedscripts
+        postrotate
+            /bin/kill -USR2 $(cat ${buildout:directory}/var/instance.pid)
+        endscript 
+}
