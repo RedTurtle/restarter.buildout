@@ -1,5 +1,11 @@
 *.py[co]
 
+# buildout/virtualenv generated
+etc
+include
+lib
+local
+
 # Packages
 *.egg
 *.egg-info
