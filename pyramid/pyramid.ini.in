@@ -17,8 +17,6 @@ CELERY_REDIS_DB = ${parts['restarter.notify']['redis.db']}
 
 mail.host = ${parts['restarter.notify']['mail.host']}
 mail.port = ${parts['restarter.notify']['mail.port']}
-mail.username = ${parts['restarter.notify']['mail.username']}
-mail.password =${parts['restarter.notify']['mail.password']}
 
 sms.username = ${parts['restarter.notify']['sms.username']}
 sms.password = ${parts['restarter.notify']['sms.password']}
