@@ -14,7 +14,7 @@ CELERY_RESULT_BACKEND = "redis"
 CELERY_REDIS_HOST = "${parts['restarter.notify']['redis.host']}"
 CELERY_REDIS_PORT = ${parts['restarter.notify']['redis.port']}
 CELERY_REDIS_DB = ${parts['restarter.notify']['redis.db']}
-CELERY_ANNOTATIONS = {"restarter.notify.facebook.post_on_page": {"rate_limit": "20/h"}}
+CELERY_ANNOTATIONS = {"restarter.notify.facebook.post_on_page": {"rate_limit": "5/h"}}
 
 mail.host = ${parts['restarter.notify']['mail.host']}
 mail.port = ${parts['restarter.notify']['mail.port']}
