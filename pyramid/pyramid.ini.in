@@ -25,7 +25,7 @@ sms.password = ${parts['restarter.notify']['sms.password']}
 fb.app_id = ${parts['restarter.notify']['fb.app_id']}
 fb.app_secret = ${parts['restarter.notify']['fb.app_secret']}
 fb.page_secret = ${parts['restarter.notify']['fb.page_secret']}
-mailgun,api = ${parts['restarter.notify']['mailgun.api']}
+mailgun.api = ${parts['restarter.notify']['mailgun.api']}
 
 [server:main]
 use = egg:waitress#main
