@@ -10,8 +10,8 @@
 
 
 backend default {
-    .host = "${hosts:pound}";
-    .port = "${ports:pound}";
+    .host = "${hosts:haproxy}";
+    .port = "${ports:haproxy}";
     .connect_timeout = 0.4s;
     .first_byte_timeout = 300s;
     .between_bytes_timeout = 60s;
