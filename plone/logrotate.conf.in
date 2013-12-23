@@ -10,6 +10,6 @@ ${buildout:directory}/var/log/*.log {
         notifempty
         sharedscripts
         postrotate
-            /bin/kill -USR2 $(cat ${buildout:directory}/var/instance.pid)
+            for pid in `zps --grep ${buildout:directory}|grep PID|awk '{print $2}'`;do kill -USR2 $pid;done
         endscript 
 }
